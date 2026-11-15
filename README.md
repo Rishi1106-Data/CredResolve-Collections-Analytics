@@ -22,10 +22,12 @@ Leadership reports that "recovery improved 11% month-on-month" and must decide w
 | `src/ptp_validation.py` | PTP maturity filter, one-payment-one-promise validation, placebo |
 | `src/metrics.py` | monthly metrics, exploratory tests (naive, HAC, block bootstrap), decomposition, `headline_numbers.json` |
 | `src/denominators.py` | denominator audit (eligible balance, status, status history) |
-| `src/validate.py`, `sql/metric_validation.sql` | independent SQL re-computation from raw files |
+| `src/validate.py`, `SQL/metric_validation.sql` | independent SQL re-computation from raw files (SQLite; run by the pipeline) |
+| `SQL/metric_validation_mysql.sql` | MySQL 8.0 version of the validation queries: import/key checks, duplicate audit, monthly recovery, contact rate, PTP validation (upper bound and one-payment-one-PTP) |
 | `src/investigate.py`, `src/drivers.py` | attribution / channel / driver screens (correlation only) |
 | `src/investment_sizing.py` | unique-account baseline, sample sizes, scenario arithmetic, experiment design, investment recommendation |
-| `src/make_dashboard.py` → `dashboard/dashboard.html` | one-screen executive dashboard |
+| `CredResolve_Executive_Dashboard.twbx` / `.png` | **Executive dashboard (Tableau, one screen, 1200×850)**: 4 KPI cards, recovery-per-day, contact-rate and paying-accounts trends (August flagged as partial), executive insight panel. Open the `.twbx` in Tableau Desktop/Reader; the `.png` is a static export |
+| `src/make_dashboard.py` | optional HTML version of the dashboard (generated into `dashboard/`, not committed) |
 | `src/make_architecture.py` → `docs/architecture.png/.svg` | architecture diagram |
 | `src/check_consistency.py` | checks deliverables against `reports/headline_numbers.json` |
 | `Analysis/Analysis.ipynb` | notebook with reasoning and outputs |
@@ -48,7 +50,7 @@ bash run_all.sh      # runs everything below in order, then the consistency chec
 2. **PTP validation:** `python src/ptp_validation.py`
 3. **Metrics + tests:** `python src/metrics.py` (writes `reports/monthly_metrics.csv`, `statistical_tests.md`, `headline_numbers.json`)
 4. `python src/denominators.py`, `python src/validate.py`, `python src/investigate.py`, `python src/drivers.py`, `python src/investment_sizing.py`
-5. **Dashboard:** `python src/make_dashboard.py`, then open `dashboard/dashboard.html` in a browser
+5. **Dashboard:** open `CredResolve_Executive_Dashboard.twbx` in Tableau (or view `CredResolve_Executive_Dashboard.png`). Optional HTML version: `python src/make_dashboard.py`, then open `dashboard/dashboard.html`
 6. **Diagram:** `python src/make_architecture.py`
 7. **Consistency:** `python src/check_consistency.py`
 
@@ -61,5 +63,8 @@ bash run_all.sh      # runs everything below in order, then the consistency chec
 - Experiment baseline: unique accounts, index date = first targeting date, outcome = SUCCESS payment within 14 days, only accounts with a fully observable window.
 - ₹10 Cr scenario values (keep rate c, uplift) are hypothetical parameters, not estimates.
 
-## 7. Known limitations (full list: `reports/limitations.md`)
-Exploratory statistics on one synthetic extract; no eligible-balance denominator; PTP kept rate is a range; borrower/agent identity unresolved so geography, tenure and agent productivity are not analysed; no language field; no cost data or keep rate, so no ROI; payments not linked to campaigns, so channel attribution is not identifiable; WhatsApp/SMS/field tables screened but not fully cleaned; `complaints` and `agent_sessions` not analysed; the dataset is synthetic, so absence of effects may reflect how it was generated.
+## 7. SQL note
+Cleaning, transformations and metric calculations are implemented in Python (`src/`); the SQL files re-compute the headline metrics independently from the RAW tables as a cross-check (`reports/metric_validation.csv`). The MySQL file additionally documents the deduplication rule (`import_row_id` assigned at ingestion).
+
+## 8. Known limitations (full list: `reports/limitations.md`)
+Exploratory statistics on one synthetic extract; no eligible-balance denominator; PTP kept rate is a range; borrower/agent identity unresolved so geography, tenure and agent productivity are not analysed; no language field; no client field in any table, so the client driver cannot be analysed; no cost data or keep rate, so no ROI; payments not linked to campaigns, so channel attribution is not identifiable; WhatsApp/SMS/field tables screened but not fully cleaned; `complaints` and `agent_sessions` not analysed; the dataset is synthetic, so absence of effects may reflect how it was generated.

@@ -6,7 +6,7 @@ for t in ["payments", "calls", "promises_to_pay"]:
     pd.read_csv(f"collections_30k_dataset/{t}.csv", dtype=str).assign().pipe(
         lambda d: d.astype({c: float for c in ["amount"] if c in d}) if "amount" in d else d
     ).to_sql(t, con, index=False)
-sql = open("sql/metric_validation.sql").read()
+sql = open("SQL/metric_validation.sql").read()
 queries = dict(re.findall(r"-- name: (\w+)\n(.*?)(?=\n-- name:|\Z)", sql, re.S))
 m = pd.read_csv("reports/monthly_metrics.csv", index_col="month")
 rows = []
