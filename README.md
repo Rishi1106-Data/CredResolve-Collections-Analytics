@@ -1,5 +1,8 @@
 # CredResolve – Collections Analytics Assignment
 
+## Live dashboard (Tableau Public)
+**[Open the interactive executive dashboard](https://public.tableau.com/app/profile/rishiraj.karn/viz/CredResolve_Executive_Dashboard/CredResolveExecutiveDashboard)**: no Tableau install needed. The workbook (`CredResolve_Executive_Dashboard.twbx`) is also in this repo; download it from Tableau Public or open the `.twbx` in Tableau to see every worksheet and calculated field.
+
 ## 1. Objective
 Leadership reports that "recovery improved 11% month-on-month" and must decide where to put ₹10 Cr (telephony, agents, AI voice, targeting, WhatsApp/digital, field). This project (a) tests whether the 11% is real, (b) identifies drivers without confusing correlation with causation, (c) states what the data can and cannot say about the ₹10 Cr decision, and (d) designs the production system and the experiment needed.
 
@@ -26,7 +29,7 @@ Leadership reports that "recovery improved 11% month-on-month" and must decide w
 | `SQL/metric_validation_mysql.sql` | MySQL 8.0 version of the validation queries: import/key checks, duplicate audit, monthly recovery, contact rate, PTP validation (upper bound and one-payment-one-PTP) |
 | `src/investigate.py`, `src/drivers.py` | attribution / channel / driver screens (correlation only) |
 | `src/investment_sizing.py` | unique-account baseline, sample sizes, scenario arithmetic, experiment design, investment recommendation |
-| `CredResolve_Executive_Dashboard.twbx` / `.png` | **Executive dashboard (Tableau, one screen, 1200×850)**: 4 KPI cards, recovery-per-day, contact-rate and paying-accounts trends (August flagged as partial), executive insight panel. Open the `.twbx` in Tableau Desktop/Reader; the `.png` is a static export |
+| `CredResolve_Executive_Dashboard.twbx` / `.png` | **Executive dashboard (Tableau, one screen, 1200×850; [live on Tableau Public](https://public.tableau.com/app/profile/rishiraj.karn/viz/CredResolve_Executive_Dashboard/CredResolveExecutiveDashboard))**: 4 KPI cards, recovery-per-day, contact-rate and paying-accounts trends (August flagged as partial), executive insight panel. Open the `.twbx` in Tableau Desktop/Reader; the `.png` is a static export |
 | `src/make_dashboard.py` | optional HTML version of the dashboard (generated into `dashboard/`, not committed) |
 | `src/make_architecture.py` → `docs/architecture.png/.svg` | architecture diagram |
 | `src/check_consistency.py` | checks deliverables against `reports/headline_numbers.json` |
