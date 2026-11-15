@@ -1,0 +1,10 @@
+grace_days,measure,n_promises,pct
+0,"RECORDED status = KEPT (as stored, not reliable)",16758,24.94
+0,"paid in window, overlap allowed (UPPER bound)",16758,3.71
+0,"paid in window, one payment -> one promise (CONSERVATIVE)",16758,3.67
+0,promised amount fully covered (rupee waterfall),16758,2.38
+0,"paid in window, only promises with NO overlapping promise on the account",15573,3.74
+3,"paid in window, overlap allowed (UPPER bound)",16476,4.5
+3,"paid in window, one payment -> one promise (CONSERVATIVE)",16476,4.44
+3,promised amount fully covered (rupee waterfall),16476,2.91
+3,"paid in window, only promises with NO overlapping promise on the account",15082,4.51

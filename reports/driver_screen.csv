@@ -1,0 +1,19 @@
+driver,outcome,groups,min_rate_pct,max_rate_pct,chi2_p,verdict
+telephony vendor,answered,5,19.49,20.68,0.05,no evidence of difference
+vendor schema_version,answered,3,19.68,20.12,0.344,no evidence of difference
+campaign strategy_version,answered,4,19.76,20.01,0.927,no evidence of difference
+campaign channel,answered,5,19.44,20.25,0.414,no evidence of difference
+hour band (as stored),answered,5,19.7,20.46,0.528,no evidence of difference
+call timezone label,answered,3,19.74,20.12,0.504,no evidence of difference
+DPD bucket,answered,5,19.75,20.23,0.829,no evidence of difference
+loan type,answered,5,19.54,20.33,0.394,no evidence of difference
+risk segment,answered,4,19.55,20.31,0.259,no evidence of difference
+attempts per account (selection-prone),paid,4,42.62,45.62,0.086,no evidence of difference
+DPD bucket,paid,5,43.37,45.77,0.028,difference (check multiple testing)
+loan type,paid,5,43.52,45.28,0.392,no evidence of difference
+risk segment,paid,4,43.7,45.0,0.444,no evidence of difference
+account status,paid,4,43.97,44.75,0.764,no evidence of difference
+WhatsApp event type,paid_within_14d_of_first_event,6,3.47,4.05,0.443,no evidence of difference
+SMS event type,paid_within_14d_of_first_event,4,3.49,3.99,0.36,no evidence of difference
+Field visit outcome,paid_within_14d_of_first_event,6,3.3,4.21,0.147,no evidence of difference
+Field visit type,paid_within_14d_of_first_event,4,3.45,3.91,0.598,no evidence of difference

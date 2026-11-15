@@ -1,0 +1,5 @@
+status,success_payments,recovery_cr,paying_accounts,accounts,outstanding_cr,paying_share_pct,recovery_pct_of_outstanding
+ACTIVE,4245,32.03,3234,7539,263.74,42.9,12.15
+CLOSED,4234,31.47,3242,7496,263.61,43.25,11.94
+PAID,4233,31.75,3220,7486,261.75,43.01,12.13
+WRITEOFF,4206,31.59,3261,7479,259.8,43.6,12.16
