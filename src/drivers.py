@@ -51,5 +51,5 @@ print("\nTests run:", len(r), "-> with 5% threshold expect ~", round(len(r) * 0.
 H = json.load(open("reports/headline_numbers.json"))
 H.update(driver_tests=len(r), driver_hits=int((r.chi2_p < 0.05).sum()), driver_bonferroni=round(0.05 / len(r), 4), driver_expected_false_pos=round(len(r) * 0.05, 1),
          hit_list="; ".join(f"{a} vs {b} (p={p})" for a, b, p in r[r.chi2_p < 0.05][["driver", "outcome", "chi2_p"]].itertuples(index=False)))
-json.dump(H, open("reports/headline_numbers.json", "w"), indent=1)
+json.dump(H, open("reports/headline_numbers.json", "w", encoding="utf-8"), indent=1)
 print("Language: NO language field exists in any table, so a language analysis is impossible.")

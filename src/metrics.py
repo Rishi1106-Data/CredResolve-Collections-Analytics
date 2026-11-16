@@ -241,5 +241,5 @@ HEAD.update(clean_success_cr=round(clean_succ / 1e7, 2), raw_success_cr=round(ra
 say(f"- Counting rules (Jan 1–Aug 8): clean SUCCESS ₹{clean_succ/1e7:.2f} Cr | raw SUCCESS incl. duplicate rows ₹{raw_succ/1e7:.2f} Cr ({HEAD['dup_inflation_pct']:+.2f}%) | "
     f"raw all statuses ₹{raw_all/1e7:.2f} Cr ({HEAD['all_status_inflation_pct']:+.1f}%). Mar/Feb: raw SUCCESS {HEAD['raw_success_mar_feb_pct']:+.2f}%, raw all-status {HEAD['raw_allstatus_mar_feb_pct']:+.1f}%, clean {HEAD['total_change_pct']:+.2f}%.")
 say("- Day-of-week index, month swings and decomposition are descriptive; they are not causal estimates.")
-open("reports/statistical_tests.md", "w").write("\n".join(lines) + "\n")
-json.dump(HEAD, open("reports/headline_numbers.json", "w"), indent=1, default=lambda o: o.item() if hasattr(o, "item") else str(o))
+open("reports/statistical_tests.md", "w", encoding="utf-8").write("\n".join(lines) + "\n")
+json.dump(HEAD, open("reports/headline_numbers.json", "w", encoding="utf-8"), indent=1, default=lambda o: o.item() if hasattr(o, "item") else str(o))

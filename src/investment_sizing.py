@@ -51,7 +51,7 @@ H.update(cohort_accounts_all=int(n_accts), cohort_accounts_observable=int(n_c), 
          n_arm_10=size[(base, .10)], n_arm_20=size[(base, .20)], n_arm_50=size[(base, .50)],
          n_arm_20_lo=size[(wil[1], .20)], n_arm_20_hi=size[(wil[0], .20)], pool_accounts=POOL,
          annualised_cr=round(annual), run_rate_cr_per_day=round(per_day, 3))
-json.dump(H, open("reports/headline_numbers.json", "w"), indent=1)
+json.dump(H, open("reports/headline_numbers.json", "w", encoding="utf-8"), indent=1)
 
 # ---------------------------------------------------------------------------------------------------------------
 # reports/investment_sizing.md   (measured facts + labelled arithmetic + experiment sizing)
@@ -97,7 +97,7 @@ L += ["",
       "",
       "**What the baseline is and is not.** It is an *observational* rate for accounts that were targeted, measured on this extract. It is used only to size a future randomised test; "
       "it does not measure the effect of targeting. The first-target cohort contains accounts that may also have been called, messaged or visited in the same 14 days."]
-open("reports/investment_sizing.md", "w").write("\n".join(L) + "\n")
+open("reports/investment_sizing.md", "w", encoding="utf-8").write("\n".join(L) + "\n")
 
 # ---------------------------------------------------------------------------------------------------------------
 # reports/experiment_design.md
@@ -131,7 +131,7 @@ D = f"""# Controlled experiment design (to establish incremental recovery before
 5. Effects on complaints and long-run relationships are not captured in 14 days.
 6. The dataset is synthetic; the baseline here illustrates the method and must be re-estimated on production data.
 """
-open("reports/experiment_design.md", "w").write(D)
+open("reports/experiment_design.md", "w", encoding="utf-8").write(D)
 
 # ---------------------------------------------------------------------------------------------------------------
 # reports/investment_recommendation.md
@@ -177,5 +177,5 @@ If the spend produces no uplift (as every observational screen here would sugges
 4. Guardrails: complaints, disputes, reversals/failed payments, opt-outs.
 5. Report **recovery per calendar day** (never monthly totals) and keep the corrected definitions (`reports/metric_definitions.md`).
 """
-open("reports/investment_recommendation.md", "w").write(R)
+open("reports/investment_recommendation.md", "w", encoding="utf-8").write(R)
 print("\n".join(L))

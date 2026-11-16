@@ -92,6 +92,6 @@ L += ["## 5. Conclusion and wording rules\n",
       "3. The headline performance measures are the ones with defensible denominators: **₹ recovered per calendar day**, **number and share of accounts paying**, and **average payment size**.",
       "4. To compute a true recovery rate the company needs: start-of-period outstanding per account, an eligibility rule (e.g. DPD>0 and not written-off at that date), dated status changes, and write-off dates. Until then, any 'recovery rate' quoted from this data should carry this caveat.",
       "5. The earlier statement 'no accounts disappear from the denominator' remains literally true for the fixed 30,000-account base, but it does not validate the denominator."]
-open("reports/denominator_audit.md", "w").write("\n".join(L) + "\n")
-json.dump(HEAD, open("reports/headline_numbers.json", "w"), indent=1)
+open("reports/denominator_audit.md", "w", encoding="utf-8").write("\n".join(L) + "\n")
+json.dump(HEAD, open("reports/headline_numbers.json", "w", encoding="utf-8"), indent=1)
 print("\n".join(L))

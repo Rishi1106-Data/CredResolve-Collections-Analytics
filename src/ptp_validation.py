@@ -146,6 +146,6 @@ if __name__ == "__main__":
               "- A payment in the window is *consistent with* a kept promise; payments carry no promise ID, so attribution cannot be proven.",
               "- Rates are low because only a few promises are followed by ANY payment; recorded KEPT status is not supported by payment data.",
               "- Promises created in Jul/Aug are maturity-censored (only short-horizon promises have matured): compare Jan-Jun only."]
-    open("reports/ptp_validation.md", "w").write("\n".join(lines) + "\n")
+    open("reports/ptp_validation.md", "w", encoding="utf-8").write("\n".join(lines) + "\n")
     tab.to_csv("reports/ptp_validation.csv", index=False)
     print("\n".join(lines))

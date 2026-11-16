@@ -44,4 +44,5 @@ svg{{width:100%;height:auto}}.tot{{fill:var(--tot)}}.day{{fill:var(--day)}}.v{{f
 <div class="lbl" style="margin-top:6px">Break-even (hypothetical keep-rate c): needs ₹10 Cr ÷ c extra recovery = {10/H['annualised_cr']*100:.1f}% of the ₹{H['annualised_cr']} Cr annualised run-rate at c=100%. c is unknown.</div></div></div>
 <div class="foot">Recovery ÷ static outstanding is an index (≈{H['den_recovery_pct_static']}% Jan–Jul), not a collection rate: an eligible balance cannot be established ({H['den_nonactive_share_accts_pct']}% of accounts are PAID/CLOSED/WRITEOFF yet receive {H['den_nonactive_share_rs_pct']}% of recovery). Data is synthetic. Details: reports/.</div>
 </div></body></html>"""
+import os; os.makedirs("dashboard", exist_ok=True)
 open("dashboard/dashboard.html", "w", encoding="utf-8").write(html); print("dashboard written")
