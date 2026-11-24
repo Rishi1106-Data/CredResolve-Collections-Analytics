@@ -71,3 +71,6 @@ Cleaning, transformations and metric calculations are implemented in Python (`sr
 
 ## 8. Known limitations (full list: `reports/limitations.md`)
 Exploratory statistics on one synthetic extract; no eligible-balance denominator; PTP kept rate is a range; borrower/agent identity unresolved so geography, tenure and agent productivity are not analysed; no language field; no client field in any table, so the client driver cannot be analysed; no cost data or keep rate, so no ROI; payments not linked to campaigns, so channel attribution is not identifiable; WhatsApp/SMS/field tables screened but not fully cleaned; `complaints` and `agent_sessions` not analysed; the dataset is synthetic, so absence of effects may reflect how it was generated.
+
+## Author
+Rishiraj Karn (M.Sc. Data Science and Management, IIT Ropar and IIM Amritsar) · [GitHub](https://github.com/Rishi1106-Data) · [LinkedIn](https://www.linkedin.com/in/rishiraj-karn-4b9a411b5)
